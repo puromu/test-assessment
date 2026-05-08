@@ -87,7 +87,6 @@ Assessment/
 │       └── ci.yml
 │
 ├── docker-compose.yml
-├── .env.example
 ├── .gitignore
 └── README.md
 ```
