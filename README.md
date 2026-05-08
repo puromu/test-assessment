@@ -68,6 +68,10 @@ PostgreSQL / Neon
 Assessment/
 │
 ├── frontend/
+│   ├── src/
+│   ├── Dockerfile
+│   └── package.json
+│
 ├── backend-api/
 │   ├── Assessment.Api/
 │   ├── Assessment.Application/
@@ -77,6 +81,10 @@ Assessment/
 │
 ├── database/
 │   └── init.sql
+│
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 │
 ├── docker-compose.yml
 ├── .env.example
