@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  padding: 40px 16px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.exam-container {
+  width: 100%;
+  max-width: 720px;
+  background: white;
+  border: 2px solid #000;
+  margin: auto;
+}
+
+.header {
+  background: #00b050;
+  color: #000;
+  text-align: center;
+  padding: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.content {
+  padding: 18px 48px;
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.form-row label {
+  font-weight: bold;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.form-row input {
+  width: 360px;
+  max-width: 100%;
+  height: 24px;
+  padding: 4px 6px;
+  border: 1px solid #999;
+}
+
+.question-box {
+  margin-bottom: 24px;
+}
+
+.question-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.choice-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.choice-row input[type="radio"] {
+  cursor: pointer;
+}
+
+.action-row {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: #4472c4;
+  color: white;
+  border: none;
+  padding: 7px 18px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-primary:hover {
+  background: #365f9f;
+}
+
+.btn-primary:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.result-text {
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.error-text {
+  color: red;
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.input-error {
+  border: 1px solid red !important;
+}
+
+.validation-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  width: 100%;
+  padding-left: 70px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .page {
+    padding: 24px 12px;
+  }
+
+  .content {
+    padding: 18px 24px;
+  }
+
+  .exam-container {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .page {
+    padding: 16px 8px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-row label {
+    white-space: normal;
+  }
+
+  .form-row input {
+    width: 100%;
+    height: 34px;
+  }
+
+  .validation-text {
+    padding-left: 0;
+  }
+
+  .action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 10px 18px;
+  }
+
+  .result-text {
+    margin-left: 0;
+    text-align: center;
+  }
+}

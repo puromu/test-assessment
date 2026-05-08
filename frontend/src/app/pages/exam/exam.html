@@ -1,0 +1,119 @@
+<div class="page">
+  <div class="exam-container">
+
+    <div class="header">
+      {{ isSubmitted ? 'IT 10-2' : 'IT 10-1' }}
+    </div>
+
+    <div class="content">
+      <!-- Loading -->
+      <div *ngIf="isLoading">
+        กำลังโหลดข้อสอบ...
+      </div>
+
+      <!-- Error -->
+      <div *ngIf="errorMessage" class="error-text">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Exam -->
+      <div *ngIf="!isLoading && questions.length > 0">
+
+        <!-- Full Name -->
+        <div class="form-row">
+
+          <label>ชื่อ-สกุล</label>
+
+          <input
+            type="text"
+            [(ngModel)]="fullName"
+            [disabled]="isSubmitted"
+            [class.input-error]="nameTouched && isFullNameInvalid()"
+          />
+
+          <div
+            *ngIf="nameTouched && isFullNameInvalid()"
+            class="validation-text"
+          >
+            กรุณากรอกชื่อ
+          </div>
+
+        </div>
+
+        <!-- Questions -->
+        <div
+          *ngFor="let q of questions; let i = index"
+          class="question-box"
+        >
+
+          <p class="question-title">
+            {{ i + 1 }}. {{ q.text }}
+          </p>
+
+          <label
+            *ngFor="let choice of q.choices"
+            class="choice-row"
+          >
+
+            <input
+              type="radio"
+              [name]="'question_' + q.id"
+              [value]="choice.id"
+              [(ngModel)]="answers[q.id]"
+              [disabled]="isSubmitted"
+            />
+
+            <span>{{ choice.text }}</span>
+
+          </label>
+
+        </div>
+
+        <!-- Actions -->
+        <div class="action-row">
+
+          <!-- Submit -->
+          <button
+            *ngIf="!isSubmitted"
+            class="btn-primary"
+            (click)="submitExam()"
+          >
+            ส่งข้อสอบ
+          </button>
+
+          <!-- Reset -->
+          <button
+            *ngIf="isSubmitted"
+            class="btn-primary"
+            (click)="resetExam()"
+          >
+            สอบอีกครั้ง
+          </button>
+
+          <!-- Result -->
+          <span
+            *ngIf="isSubmitted"
+            class="result-text"
+          >
+            คุณ {{ fullName }}
+            ได้คะแนน {{ score }}/{{ questions.length }}
+          </span>
+
+        </div>
+
+      </div>
+
+      <!-- Empty -->
+      <div
+        *ngIf="
+          !isLoading &&
+          questions.length === 0 &&
+          !errorMessage
+        "
+      >
+        ไม่พบข้อสอบ
+      </div>
+
+    </div>
+  </div>
+</div>
