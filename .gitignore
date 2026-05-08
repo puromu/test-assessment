@@ -1,0 +1,35 @@
+# Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Angular cache
+.angular/cache/
+
+# .NET
+**/bin/
+**/obj/
+.vs/
+
+# Rider / VSCode
+.idea/
+.vscode/
+
+# User files
+*.user
+*.suo
+
+# Env / Secret
+.env
+.env.*
+!.env.example
+
+appsettings.Development.json
+appsettings.*.local.json
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
