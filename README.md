@@ -116,6 +116,33 @@ http://localhost:4200/exam
 
 # Backend Setup
 
+Before running backend locally, configure database connection in:
+
+```text
+backend-api/Assessment.Api/appsettings.json
+```
+
+Example:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=your-neon-host;Port=5432;Database=your_db;Username=your_user;Password=your_password;SSL Mode=Require;Trust Server Certificate=true"
+  },
+
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+
+  "AllowedHosts": "*"
+}
+```
+
+Run backend:
+
 ```bash
 cd backend-api/Assessment.Api
 
@@ -130,6 +157,7 @@ Swagger:
 http://localhost:5209/swagger
 http://localhost:5209/index.html
 ```
+
 
 ---
 
@@ -155,9 +183,9 @@ on PostgreSQL / Neon database.
 
 ---
 
-# Environment Variables
+# Docker Setup
 
-Create `.env`
+Before running Docker Compose, create `.env` file at project root.
 
 Example:
 
@@ -166,10 +194,6 @@ ASPNETCORE_ENVIRONMENT=Development
 
 ConnectionStrings__DefaultConnection=Host=your-neon-host;Port=5432;Database=your_db;Username=your_user;Password=your_password;SSL Mode=Require;Trust Server Certificate=true
 ```
-
----
-
-# Docker Setup
 
 Build and run containers:
 
@@ -187,6 +211,7 @@ Backend Swagger:
 
 ```text
 http://localhost:5209/swagger
+http://localhost:5209/index.html
 ```
 
 ---
